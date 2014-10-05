@@ -1,25 +1,25 @@
 package chess
 
-import utils.Specification
-import play.api.libs.ws.WS
-import rx.lang.scala.Observable
 import library.RequestHolderImplicits.RichRequestHolder
+import library.WebClient
+import utils.Specification
+import rx.lang.scala.Observable
 import scala.concurrent.duration.DurationInt
 
 class ChessTest extends Specification {
 
   "chess" in {
-    val url = "http://en.lichess.org/stream"
+    val url = "http://en.lichess.org/world-map/stream"
 
-    val topPlayers = WS
+    val topPlayers = WebClient
       .url(url)
       .lineStream
       .map(ChessMove.make)
-      .buffer(5.seconds)
+      .tumblingBuffer(5.seconds)
 //      .map(_.size)
           .map { moves =>
             moves
-              .groupBy(_.user)
+              .groupBy(_.country)
               .mapValues(_.size)
               .toSeq
               .sortBy(_._2)
@@ -34,7 +34,7 @@ class ChessTest extends Specification {
 
     println("end")
 
-    Thread.sleep(20000)
+    Thread.sleep(15000)
 
     1 mustEqual 1
   }

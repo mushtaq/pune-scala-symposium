@@ -40,9 +40,9 @@ class SquaresTest extends Specification {
   "streaming" in {
     val resultO = Squares.streaming(1 to 20)
     println("===============call returned================")
-    resultO.buffer(timeout).subscribe(x => println(x))
+    resultO.tumblingBuffer(timeout).subscribe(x => println(x))
 
-    resultO.toBlockingObservable.toList
+    resultO.toBlocking.toList
     1 mustEqual 1
   }
 }

@@ -1,7 +1,7 @@
 package twitter
 
+import library.WebClient
 import play.api.libs.oauth.{RequestToken, ConsumerKey, OAuthCalculator}
-import play.api.libs.ws.WS
 import library.RequestHolderImplicits.RichRequestHolder
 import play.api.libs.iteratee.{Iteratee, Enumeratee}
 import utils.Config.executionContext
@@ -22,7 +22,7 @@ object TwitterClient {
 
   val asTweet = Enumeratee.grouped(takeTweet)
 
-   def getJsonStream(url: String) = WS
+  def getJsonStream(url: String) = WebClient
     .url(url)
     .sign(oAuthCalculator)
     .lineChunks

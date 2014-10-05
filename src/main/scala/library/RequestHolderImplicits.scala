@@ -1,8 +1,7 @@
 package library
 
-import play.api.libs.ws.WS.WSRequestHolder
+import play.api.libs.ws.WSRequestHolder
 import play.api.libs.iteratee.Concurrent
-import java.lang.String
 import library.EnumeratorImplicits.RichEnumerator
 import utils.Config.executionContext
 
