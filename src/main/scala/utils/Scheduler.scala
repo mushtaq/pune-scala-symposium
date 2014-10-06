@@ -13,10 +13,13 @@ object Scheduler {
     val promise = Promise[T]()
 
     Config.threadPool.schedule(
+
       new Runnable {
         def run() = promise.complete(Try(block))
-      }      ,
+      },
+
       delay.length,
+
       delay.unit
     )
 
