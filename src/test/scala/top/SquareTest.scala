@@ -40,6 +40,6 @@ class SquareTest extends Specification {
 
     println("===============call returned================")
 
-    resultO.toBlockingObservable.toList mustEqual Seq(100)
+    resultO.toBlocking.toList mustEqual Seq(100)
   }
 }
