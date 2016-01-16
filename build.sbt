@@ -1,11 +1,11 @@
 name := "pune-scala-symposium"
 
-scalaVersion := "2.11.2"
+scalaVersion := "2.11.6"
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-ws" % "2.3.4",
+  "com.typesafe.play" %% "play-ws" % "2.3.8",
   "org.scala-lang.modules" %% "scala-async" % "0.9.2",
-  "io.reactivex" %% "rxscala" % "0.21.1",
+  "io.reactivex" %% "rxscala" % "0.25.0",
   "org.specs2" %% "specs2" % "2.4.6" % "test"
 )
 
