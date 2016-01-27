@@ -1,7 +1,7 @@
 package top
 
 import scala.concurrent.Await
-import scala.concurrent.duration.DurationDouble
+import scala.concurrent.duration._
 import utils.Specification
 import utils.Config.executionContext
 
